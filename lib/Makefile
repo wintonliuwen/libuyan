@@ -7,16 +7,17 @@ OBJ := $(SRC:%.c=%.o)
 TARGET := liblwzy.so
 
 
-all: build install
+all: build
 
 %.o: %.c
 	$(CC) -c -fpic $(CFLAGS) $(BUILD_CFLAGS) $< -o $@
 
 build: $(OBJ)
-	$(CC) $(DLIB_FLAGS) $(BUILD_LDFLAGS) $^ -o $(TARGET)
+	$(CC) $(DLIB_FLAGS)  $^ -o $(TARGET)
 
 install:
-
+	cp liblwzy.so /usr/lib/
+	cp ../include/*.h /usr/include
 
 clean:
 	rm -rf ${OBJ} ${TARGET}
