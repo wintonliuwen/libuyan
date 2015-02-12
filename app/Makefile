@@ -1,6 +1,6 @@
 include ../Make.defines
 
-PROGS=test config
+PROGS=test config errtest
 BUILD_CFLAGS=-I"../include"
 LDFLAGS= -llwzy
 
@@ -13,6 +13,9 @@ test:test.o
 	$(CC) $^ $(LDDIR) $(LDFLAGS) -o $@
 
 config:config.o
+	$(CC) $^ $(LDDIR) $(LDFLAGS) -o $@
+
+errtest:errtest.o
 	$(CC) $^ $(LDDIR) $(LDFLAGS) -o $@
 
 clean:

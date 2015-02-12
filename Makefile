@@ -7,7 +7,7 @@ all:
 
 install:
 	for dir in $(DIRS);do \
-		(cd $$dir %% $(MAKE) install) || exit 1;\
+		(cd $$dir && $(MAKE) install) || exit 1;\
 	done
 
 clean:
