@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <inttypes.h>
 #include <stdarg.h>
+#include <termios.h>
 
 #define MAXLINE 4096            /* max line length */
 
@@ -20,5 +21,7 @@ void err_exit(int error, const char *fmt, ...);
 void err_dump(const char *fmt, ...);
 void err_msg(const char *fmt, ...);
 void err_quit(const char *fmt, ...);
+
+int tc_setspeed(int fd, speed_t speed);
 
 #endif
